@@ -10,7 +10,7 @@ spec:
         app: EnG-frontend
     spec:
       containers:
-      - image: /d3334/angular
+      - image: d3334/angular
         name: EnG-frontend
         resources:
           limits:

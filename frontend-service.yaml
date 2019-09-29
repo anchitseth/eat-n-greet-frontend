@@ -3,11 +3,11 @@ kind: Service
 metadata:
   labels:
     app: EnG-frontend
-  name: ??????
+  name: EnG-frontend-service
 spec:
   ports:
   - protocol: TCP
-    port: 4200
+    port: 80
     targetPort: 4200
   selector:
     app: EnG-frontend
