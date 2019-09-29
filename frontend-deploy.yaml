@@ -1,17 +1,17 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: EnG-frontend
+  name: eng-frontend
 spec:
   replicas: 2
   template:
     metadata:
       labels:
-        app: EnG-frontend
+        app: eng-frontend
     spec:
       containers:
       - image: d3334/angular
-        name: EnG-frontend
+        name: eng-frontend
         resources:
           limits:
             memory: "256Mi"
