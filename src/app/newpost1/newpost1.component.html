@@ -1,0 +1,119 @@
+<div>
+        <mat-toolbar class="fixed-header" color="primary"  style="min-height: 45px !important; height: 45px !important;">
+          <mat-toolbar-row>
+            <!--<a href="/" > Eat & Greeth </a>-->
+            <span style="cursor:pointer" routerLink="/home" (click)="homeitself()">Eat-N-Greet</span>
+      
+            <span class="example-spacer"></span>
+      
+            <button mat-button [matMenuTriggerFor]="dropdownoptions">Dropdown<mat-icon>keyboard_arrow_down</mat-icon></button>
+          </mat-toolbar-row>
+        </mat-toolbar>
+        <mat-menu #dropdownoptions="matMenu">
+          <!-- <button mat-menu-item routerlink='/login' routerlinkActive="active" (click)="logout()">Logout</button> -->
+          <button mat-menu-item routerlink='/My-orders' routerlinkActive="active" (click)="orders()">My-orders</button>
+          <button mat-menu-item routerlink='/postAMeal' routerlinkActive="active" (click)="postMeal()">Post-A-Meal</button>
+          <button mat-menu-item routerlink='/My-wallet' routerlinkActive="active" (click)="wallet()">Wallet</button>
+        </mat-menu>
+      </div>
+      <div>
+        <form [formGroup]="mealForm" (ngSubmit)="compareServingAndReservationDates()">
+          <div class="mat-card-cvr">
+             
+            <table>
+            <!-- Number of consumers to be served -->
+            
+              <tr>
+                  <td>Number of pax</td>
+              <td><input  type="number" formControlName="noOfPax"  matInput required min="1" style="width:250px;"></td>
+            </tr>
+            
+      
+            <!-- Price per person -->
+            <tr>
+              <td>Price (SGD)</td>
+              <td><input type="number" formControlName="price"  matInput required min="1" style="width:250px;margin-top: 0px"></td>
+            
+        </tr>
+            <!-- Serving Date -->
+            <!-- <mat-form-field>
+              <input type="date-local" formControlName="servingDate" matInput required placeholder="Serving date" 
+                useValueAsDate>
+            </mat-form-field> -->
+            <tr>
+            <td>Serving Date</td>
+           <td>  <input  required [min]="today"  [matDatepicker]="servingDatePicker" placeholder="Serving Date"
+                formControlName="servingDate" style="width:200px;margin-top: 0px">
+              <mat-datepicker-toggle matSuffix [for]="servingDatePicker"></mat-datepicker-toggle>
+              <mat-datepicker #servingDatePicker></mat-datepicker></td> 
+            
+        </tr>
+            <!-- Serving Time -->
+            <!-- <input class="col-md-5 end" matInput name="end" formControlName="start" type="time"> -->
+            <tr>
+                <td style="width:250px;">Serving time</td>
+            <td>  <input type="time" formControlName="servingTime"  matInput required placeholder="Serving time" style="width:250px;margin-top: 0px"></td>
+           
+        </tr>
+      
+            <!-- Reservation Deadline Date -->
+            <!-- <mat-form-field>
+              <input type="date-local" formControlName="reservationDate" matInput required
+                placeholder="Reservation Deadline Date" useValueAsDate>
+            </mat-form-field> -->
+            <tr>
+             <td>Reservation Date</td>
+              <td> <input  required [min]="today" [matDatepicker]="reservationDatePicker" placeholder="Reservation Deadline Date"
+                formControlName="reservationDate" style="width:200px;margin-top: 0px">
+              <mat-datepicker-toggle matSuffix [for]="reservationDatePicker"></mat-datepicker-toggle>
+              <mat-datepicker #reservationDatePicker></mat-datepicker></td> 
+            
+        </tr>
+            <!-- Reservation Deadline Time -->
+            <!-- <input class="col-md-5 end" matInput name="end" formControlName="start" type="time"> -->
+           <tr>
+            <td>Reservation time</td>
+            <td>  <input type="time" formControlName="reservationTime"  matInput required placeholder="Reservation Deadline Time" style="width:250px;margin-top: 0px"></td>
+            
+        </tr>
+            <!-- Preference Type -->
+            <tr>
+           <td>Preference</td>
+           <td>
+            <mat-radio-group color="primary" formControlName="preference" style="width:250px;margin-top: 0px">
+              <mat-radio-button value="1">Dine-In</mat-radio-button> &nbsp;
+              <mat-radio-button value="2">Take-Away</mat-radio-button>
+            </mat-radio-group>
+        </td>
+        </tr>
+            <!-- Items-->
+            <tr>
+                <td>Items</td>
+            <td>
+              <mat-chip-list #itemList aria-label="Item selection">
+                <mat-chip *ngFor="let selectedItem of selectedItems" [selectable]="selectable" [removable]="removable"
+                  (removed)="remove(selectedItem)">
+                  {{selectedItem}}
+                  <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                </mat-chip>
+                <input placeholder="New item..." #itemInput [formControl]="itemCtrl" [matAutocomplete]="auto"
+                  [matChipInputFor]="itemList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                  [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)" style="width:150px; margin-top: 0px">
+              </mat-chip-list>
+              <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                <mat-option *ngFor="let filteredItem of filteredItems | async" [value]="filteredItem" style="width:200px;margin-top: 0px">
+                  {{filteredItem}}
+                </mat-option>
+              </mat-autocomplete>
+            </td>
+            </tr>
+            <tr>
+            <td>Note</td>
+                <td><input  type="text" formControlName="note"  matInput required min="1" style="width:250px;"></td>
+              </tr>
+        </table>
+        <br>
+            <button mat-raised-button color="primary" style="margin-left: 130px"> POST MEAL </button>
+          </div>
+        </form>
+      </div>

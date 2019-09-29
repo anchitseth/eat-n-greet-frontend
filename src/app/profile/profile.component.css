@@ -1,0 +1,15 @@
+.example-spacer{
+    flex:1 1 auto;
+}
+form{
+    
+    text-align:center;
+    /*background-image: url("src/assets/thai-food.jpg");*/
+}
+mat-form-field{
+    margin-top:-10px;
+}
+mat-expansion-panel{
+    margin-left: 200px;
+    margin-right:200px;
+}

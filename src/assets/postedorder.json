@@ -1,0 +1,66 @@
+ [{
+  "producerOrderId":1,
+  "firstName":"Aparna",
+  "lastName":"Gottumukala",
+  "itemList":[{
+  "id":1,
+  "name":"Puri"
+  },
+  {
+  "id":2,
+  "name":"chenna"
+  }
+  ],
+  "address":[{
+  "blockNo":108,
+  "FloorNo":8,
+  "UnitNo":64,
+  "StreetName":"West Avenue 6",
+  "BuildingName":"",
+  "postCode":60048}],
+  "imageUrls":[{
+  "id":""}],
+  "imageThumbnailUrls":[{
+  "id":""}],
+  "servingDate":"18/9/2019 7:00PM",
+  "reservationdeadline":"18/9/2019 12:00PM",
+  "paymentdeadline":"18/9/2019 5:00PM",
+  "price":10,
+  "maxPeopleCount":15,
+  "actualPeopleCount":13,
+  "preferenceType":"Dine In",
+  "otherItems":"",
+  "note":""},
+  {
+    "producerOrderId":2,
+    "firstName":"Aparna",
+    "lastName":"Gottumukala",
+    "itemList":[{
+    "id":3,
+    "name":"veg briyani"
+    },
+    {
+    "id":4,
+    "name":"raitha"
+    }
+    ],
+    "address":[{
+    "blockNo":108,
+    "FloorNo":8,
+    "UnitNo":64,
+    "StreetName":"West Avenue 6",
+    "BuildingName":"",
+    "postCode":60048}],
+   "imageUrls":[{
+    "id":""}],
+    "imageThumbnailUrls":[{
+    "id":""}],
+    "servingDate":"18/9/2019 7:00PM",
+    "reservationdeadline":"18/9/2019 12:00PM",
+    "paymentdeadline":"18/9/2019 5:00PM",
+    "price":10,
+    "maxPeopleCount":10,
+    "actualPeopleCount":8,
+    "preferenceType":"Takeaway",
+    "otherItems":"",
+    "note":""}]

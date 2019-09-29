@@ -1,0 +1,119 @@
+
+<div>
+
+        <mat-toolbar class="fixed-header" color="primary" style="min-height: 45px !important; height: 45px !important;">
+          <mat-toolbar-row>
+            <!--<a href="/" > Eat & Greeth </a>-->
+            <span style="cursor:pointer" routerLink="/home" (click)="homeitself()">Eat-N-Greet</span>
+      
+            <span class="example-spacer"></span>
+      
+            <button mat-button [matMenuTriggerFor]="dropdownoptions">Dropdown<mat-icon>keyboard_arrow_down</mat-icon></button>
+          </mat-toolbar-row>
+        </mat-toolbar>
+        <mat-menu #dropdownoptions="matMenu">
+          <!-- <button mat-menu-item routerlink='/login' routerlinkActive="active" (click)="logout()">Logout</button> -->
+          <button mat-menu-item routerlink='/My-orders' routerlinkActive="active" (click)="orders()">My-orders</button>
+          <button mat-menu-item routerlink='/postAMeal' routerlinkActive="active" (click)="postMeal()">Post-A-Meal</button>
+          <button mat-menu-item routerlink='/My-wallet' routerlinkActive="active" (click)="wallet()">Wallet</button>
+        </mat-menu>
+      </div>
+      <br>
+      <br>
+<form [formGroup]="registrationform">
+        <mat-accordion multi="true">
+                <mat-expansion-panel> 
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        General
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+<mat-form-field floatLabel="auto" appearance="standard" color="primary">
+        <mat-label >First Name</mat-label>
+        <input matInput type="text" formControlName="fname">
+    </mat-form-field><br/>
+    <mat-form-field floatLabel="auto" appearance="standard" color="primary"  >
+            <mat-label >Last Name</mat-label>
+            <input matInput type="text" formControlName="lname">
+        </mat-form-field><br/>
+        <mat-form-field floatLabel="auto" appearance="standard" color="primary">
+            <mat-label >Email</mat-label>
+            <input type="email" matInput formControlName="email" >
+        </mat-form-field><br/>
+                        
+        <mat-form-field floatLabel="auto" appearance="standard" color="primary">
+                        <mat-label >Mobile No.</mat-label>
+               
+<input type="tel" matInput formControlName="mobileno" >
+</mat-form-field><br/>
+<mat-label >Gender</mat-label>
+<mat-radio-group aria-label="Gender" color="primary" labelposition="before" name="gender" formControlName="gender">
+<mat-radio-button value="1">Male</mat-radio-button>
+<mat-radio-button value="2">Female</mat-radio-button>
+</mat-radio-group><br> 
+<mat-form-field>
+        <mat-label>DOB</mat-label>
+        <input matInput type="date" placeholder="Enter date" formControlName="dob">
+        </mat-form-field><br>
+        <mat-form-field floatLabel="auto" appearance="standard" color="primary">
+            <mat-label >Password</mat-label>
+            <input type="password" matInput formControlName="password" >
+        </mat-form-field><br>
+            <mat-form-field floatLabel="auto" appearance="standard" color="primary" >
+        <mat-label >Change Password</mat-label>
+        <input type="password" matInput formControlName="changepassword" >
+        </mat-form-field><br>
+        </mat-expansion-panel>
+        <mat-expansion-panel> 
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                      Address
+                      </mat-panel-title>
+                      </mat-expansion-panel-header>
+
+        <div formGroupName="address">
+        <mat-form-field floatLabel="auto" appearance="standard" color="primary" >
+                <mat-label >Block No.</mat-label>
+                <input type="text" matInput formControlName="block" >
+                
+            </mat-form-field><br/>
+            <mat-form-field floatLabel="auto" appearance="standard" color="primary" >
+                <mat-label>Floor No.</mat-label>
+                <input matInput type="text" formControlName="floor" >
+            </mat-form-field><br/>
+            <mat-form-field floatLabel="auto" appearance="standard" color="primary">
+                <mat-label >Unit No.</mat-label>
+                <input type="text" matInput formControlName="unit" >
+            </mat-form-field><br/>
+        
+            <mat-form-field floatLabel="auto" appearance="standard" color="primary">
+            <mat-label >Building Name</mat-label>
+            <input type="text" matInput formControlName="building" >
+        </mat-form-field><br/>
+        <mat-form-field floatLabel="auto" appearance="standard" color="primary">
+        <mat-label >Street Name</mat-label>
+        <input type="text" matInput formControlName="streetname" >
+    </mat-form-field><br/>
+    <mat-form-field floatLabel="auto" appearance="standard" color="primary">
+        <mat-label >PostCode</mat-label>
+        <input type="text" matInput formControlName="postcode" >
+    </mat-form-field><br>
+        </div>
+        </mat-expansion-panel>
+    </mat-accordion>
+    <br>
+    <button mat-raised-button color="primary" (click)="save()">Save</button>
+</form>
+
+<div>
+        <footer  class="page-footer font-small blue" style="min-height: 45px !important; height: 45px !important;">
+
+                <!-- Copyright -->
+                <div class="footer-copyright text-center py-3" style="color: white">© 2018 Copyright:
+                  <a style="color: white"> Eat-N-Greet.com </a>
+                </div>
+                <!-- Copyright -->
+              
+              </footer>
+  </div>                                   
+                    

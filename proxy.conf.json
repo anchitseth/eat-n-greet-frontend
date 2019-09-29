@@ -1,0 +1,20 @@
+{
+    "/userms/*": {
+        "target": "http://23.97.53.91:8080/eatngreet/",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
+    },
+    "/bookingms/*": {
+        "target": "http://137.116.139.240:8081/eatngreet/",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
+    },
+    "/paymentms/*": {
+        "target": "http://13.76.193.155:8082/eatngreet/",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
+    }
+}

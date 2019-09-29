@@ -1,0 +1,138 @@
+<div>
+        
+    <mat-toolbar class="fixed-header" color="primary">
+            <mat-toolbar-row>
+         <!--<a href="/" > Eat & Greeth </a>-->
+         <span style="cursor:pointer" routerLink="/home" (click)="homeitself()">Eat-N-Greet</span>
+               
+                <span class="example-spacer"></span>
+            
+        <button mat-button [matMenuTriggerFor]="dropdownoptions">Dropdown<mat-icon>keyboard_arrow_down</mat-icon></button>
+            </mat-toolbar-row>
+        </mat-toolbar>
+        <mat-menu #dropdownoptions="matMenu">
+          <button mat-menu-item  routerlink='/login' routerlinkActive="active" (click)="logout()" >Logout</button>
+          <button mat-menu-item routerlink='/My-orders' routerlinkActive="active" (click)="orders()" >My-orders</button>
+          <button mat-menu-item routerlink='/postAMeal' routerlinkActive="active" (click)="postMeal()">Post-A-Meal</button>
+        <!-- <button  mat-menu-item routerlink='/profile' routerlinkActive="active" (click)="Profile()" >Profile</button> -->
+        </mat-menu>
+        </div>
+
+<br/>
+<mat-tab-group mat-align-tabs="center" (selectedTabChange)="checkorder()">
+
+<mat-tab label="Booked Orders" >
+    <br/>
+    <mat-accordion multi="true">
+        <mat-expansion-panel *ngFor="let x of bookedorder"> 
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+             <div>Order ID {{x.BookingId}}</div> 
+             
+            </mat-panel-title>
+            <mat-panel-description>
+                <div>Serving Date {{x.servingDate}} </div>
+    
+                 
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <div>
+                <ul *ngFor="let y of x.itemList">
+                        <li>{{y.name}}</li>
+                </ul>
+                <table>
+                    <tr>
+                        <td>Producer Name</td>
+                        <td>{{x.firstName}} {{x.lastName}}</td>
+                    </tr>
+                    <tr>
+                            <td>Contact No.</td>
+                            <td>{{x.phone}}</td>
+                        </tr>
+                        <tr>
+                                <td>Address </td>
+                                <td><div *ngFor="let y of x.address"> {{y.blockNo}} {{y.FloorNo}} {{y.UnitNo}} {{y.StreetName}} {{y.BuildingName}} {{y.postCode}}</div>  </td>
+                            </tr>
+    
+                    <tr>
+                            <td>Price</td>
+                            <td>{{x.price}}</td>
+                        </tr>
+                    <tr>
+                            <td>Preference Type</td>
+                            <td>{{x.preferenceType}}</td>
+                        </tr>
+
+                </table>
+    
+          </div>
+    
+        </mat-expansion-panel>
+        <div style="text-align: center" *ngIf="isbookedorder==true">
+            No orders
+        </div>
+        <div style="text-align: center" *ngIf="isbookedorder==false">
+                No more orders
+            </div>
+        </mat-accordion>
+</mat-tab>
+<mat-tab label="Posted Orders" > 
+       <br/>
+<mat-accordion multi="true">
+<mat-expansion-panel *ngFor="let x of postedorder"> 
+<mat-expansion-panel-header>
+<mat-panel-title>
+ <div>Order ID {{x.producerOrderId}}</div> 
+ 
+</mat-panel-title>
+<mat-panel-description>
+    <div>Serving Date {{x.servingDate}} </div>
+
+     
+</mat-panel-description>
+</mat-expansion-panel-header>
+<div>
+    <ul *ngFor="let y of x.itemList">
+            <li>{{y.name}}</li>
+    </ul>
+    <table>
+        <tr>
+            <td>Total No. of people</td>
+            <td>{{x.maxPeopleCount}}</td>
+        </tr>
+        <tr>
+                <td>No. of people booked</td>
+                <td>{{x.actualPeopleCount}}</td>
+            </tr>
+
+        <tr>
+                <td>Price</td>
+                <td>{{x.price}}</td>
+            </tr>
+        <tr>
+                <td>Preference Type</td>
+                <td>{{x.preferenceType}}</td>
+            </tr>
+        <tr>
+                <td>Reservation deadline</td>
+                <td>{{x.reservationdeadline}}</td>
+            </tr>
+            <tr>
+                    <td>Payment deadline</td>
+                    <td>{{x.paymentdeadline}}</td>
+                </tr>
+    </table>
+
+</div>
+
+</mat-expansion-panel>
+<div style="text-align: center" *ngIf="ispostedorder">
+No orders
+</div>
+<div style="text-align: center" *ngIf="ispostedorder==false">
+    No more orders
+</div>
+</mat-accordion>
+
+
+</mat-tab>

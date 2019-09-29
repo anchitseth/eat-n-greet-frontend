@@ -1,0 +1,56 @@
+a{
+    text-decoration-color: white;
+}
+
+body, html {
+    height: 10%;
+    font-family: Arial, Helvetica, sans-serif;
+  
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  .bg-img {
+    /* The image used */
+    background-image: url("../../assets/thai-food.jpg");
+  
+    min-height: 675px;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+  
+  /* Add styles to the form container */
+  .container {
+    position: absolute;
+    left:40%;
+    top:30%;
+    margin: 30px;
+    max-width: 300px;
+    max-height: 800px;
+    padding: 25px;
+    background-color: white;
+  }
+  
+  /* Full-width input fields */
+  
+  
+  /* Set a style for the submit button */
+  .btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+    opacity: 0.9;
+  }
+  
+  .btn:hover {
+    opacity: 1;
+  }
