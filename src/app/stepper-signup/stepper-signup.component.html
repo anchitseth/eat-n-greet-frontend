@@ -1,7 +1,7 @@
 <div class="bg">
     <form [formGroup]="registrationform" (ngSubmit)="onSubmit()">
 
-        <div *ngIf="formNumber == 1" class="container">
+        <div *ngIf="formCount == 1" class="container">
 
             <mat-form-field floatLabel="auto" appearance="standard" color="primary">
                 <mat-label>First Name</mat-label>
@@ -83,7 +83,7 @@
             <button mat-raised-button color="primary" (click)="checkFormOne()">Next</button>
 
         </div>
-        <div *ngIf="formNumber == 2" class="container">
+        <div *ngIf="formCount == 2" class="container">
             <div formGroupName="address">
                 <mat-form-field floatLabel="auto" appearance="standard" color="primary">
                     <mat-label>Block No.</mat-label>

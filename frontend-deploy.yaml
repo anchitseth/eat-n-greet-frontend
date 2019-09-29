@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: EnG-frontend
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: EnG-frontend
+    spec:
+      containers:
+      - image: /d3334/angular
+        name: EnG-frontend
+        resources:
+          limits:
+            memory: "256Mi"
+            cpu: "200m"
+        imagePullPolicy: Always
+        ports:
+        - name: frontend-port
+          containerPort: 4200
+status: {}

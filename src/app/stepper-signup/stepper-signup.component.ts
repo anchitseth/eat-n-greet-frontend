@@ -12,7 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class StepperSignupComponent implements OnInit {
 
-  formNumber: number;
+  formCount: number;
 
   constructor(private fb: FormBuilder, private router: Router, private toastr: ToastrService) { }
   isFormOne: Boolean = true;
@@ -36,7 +36,7 @@ export class StepperSignupComponent implements OnInit {
     })
   });
   ngOnInit() {
-    this.formNumber = 1;
+    this.formCount = 1;
   }
 
   checkpass() {
@@ -170,7 +170,11 @@ export class StepperSignupComponent implements OnInit {
   }
 
   goToFormOne() {
-    this.isFormOne = true;
+    this.formCount = 1;
+  }
+
+  goToFormTwo() {
+    this.formCount = 2;
   }
 
   checkFormOne() {
@@ -189,10 +193,17 @@ export class StepperSignupComponent implements OnInit {
         this.toastr.error("Please select gender.");
       } else {
         if (this.registrationform.controls['dob'].value == "") {
+          isFormOneValid = false;
           this.toastr.error("Please select dob.");
-
         }
       }
+    }
+    if( this.registrationform.controls['password'].value !==  this.registrationform.controls['confirmpassword'].value) {
+      isFormOneValid = false;
+      this.toastr.error("Password and Confirm Password do not match.")
+    }
+    if(isFormOneValid) {
+      this.goToFormTwo();
     }
   }
 }
