@@ -62,7 +62,7 @@ logout() {
   postMeal() {
     this.router.navigateByUrl('/postmeal');
   }
-  waller() {
+  wallet() {
     this.router.navigateByUrl('/wallet');
   }
   homeitself() {

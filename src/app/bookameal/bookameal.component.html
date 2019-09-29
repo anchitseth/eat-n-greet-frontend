@@ -5,7 +5,8 @@
 
             <span class="example-spacer"></span>
 
-            <button mat-button [matMenuTriggerFor]="dropdownoptions">Dropdown<mat-icon>keyboard_arrow_down</mat-icon></button>
+            <button mat-button [matMenuTriggerFor]="dropdownoptions">Dropdown<mat-icon>keyboard_arrow_down</mat-icon>
+            </button>
         </mat-toolbar-row>
     </mat-toolbar>
     <mat-menu #dropdownoptions="matMenu">
@@ -18,7 +19,7 @@
             <mat-card>
                 <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
             </mat-card><br>
-            <button mat-raised-button color="primary" style="margin-right:5px;" (click)="onBook()">Book Now</button>
+            <button mat-raised-button color="primary" style="margin-right:5px;" (click)="bookMeal()">Book Now</button>
             <button mat-raised-button color="primary" style="margin-right:5px;" (click)="onBack()">Back</button>
         </div>
     </div>
@@ -81,19 +82,4 @@
             </mat-card>
         </div>
     </div>
-    <!--
-<h6> 
-Name : </h6> <pre> {{obj.firstName}}</pre> <br>
-<h5>   Address         : {{obj.address}} <br>
-Serving Date     : {{obj.servingDate}}<br>
-paymentDeadline  : {{obj.paymentDeadline}}<br>
-Reservation Date : {{obj.reservationDeadline}} <br>
-Preference Type          : {{obj.preferenceType}} <br>
-Price            : {{obj.price}}<br>
-Number of Persons to be served (Quantity) : {{obj.maxPeopleCount}}<br>
-Actual people count : {{obj.actualPeopleCount}}<br>
-Items List       : {{obj.itemList }}<br>
-                    Description      : {{obj.note}}<br>
-                  </h5>
-        
--->
+</div>

@@ -126,4 +126,9 @@ export class BookamealComponent implements OnInit {
   onBack() {
     this.router.navigateByUrl('/home');
   }
+
+  bookMeal() {
+    console.log("book meal number:", this.mealDetails.orderId);
+    
+  }
 }
