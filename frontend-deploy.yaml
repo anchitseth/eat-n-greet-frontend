@@ -10,7 +10,7 @@ spec:
         app: eng-frontend
     spec:
       containers:
-      - image: d3334/angular:3
+      - image: d3334/angular:4
         name: eng-frontend
         resources:
           limits:
