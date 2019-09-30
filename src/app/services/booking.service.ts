@@ -13,15 +13,15 @@ export class BookingService {
   }
 
   getAllOrdersForListing() {
-    return this.http.post<DataResponseDto>('http://137.116.139.240:8081/eatngreet/bookingms/booking/all-items', {});
+    return this.http.post<DataResponseDto>('bookingms/booking/all-items', {});
   }
 
   getSingleProducerItem(orderId) {
-    return this.http.post<DataResponseDto>('http://137.116.139.240:8081/eatngreet/bookingms/booking/single-producer-item', {"producerOrderId": orderId});
+    return this.http.post<DataResponseDto>('bookingms/booking/single-producer-item', {"producerOrderId": orderId});
   }
 
   getAllItemNames() {
-    return this.http.post<DataResponseDto>(`http://137.116.139.240:8081/eatngreet/bookingms/auto-suggest/all-item-names`, {});
+    return this.http.post<DataResponseDto>(`bookingms/auto-suggest/all-item-names`, {});
   }
 
   createNewOrder(reqObj) {
@@ -30,6 +30,6 @@ export class BookingService {
         'Content-Type':  'application/json',
         'Authorization': 'Basic ' + sessionStorage.getItem("token")
       })}
-    return this.http.post<CommonResponseDto>(`http://137.116.139.240:8081/eatngreet/bookingms/booking/producer-order`, reqObj, httpOptions);
+    return this.http.post<CommonResponseDto>(`bookingms/booking/producer-order`, reqObj, httpOptions);
   }
 }

@@ -20,7 +20,7 @@ export class UserService {
     const body = new FormData();
     body.set('username', loginObj.username);
     body.set('password', loginObj.password);
-    return this.http.post(`http://23.97.53.91:8080/eatngreet/userms/user/login`, body).pipe(catchError(this.handleError));
+    return this.http.post(`userms/user/login`, body).pipe(catchError(this.handleError));
   }
 
   getLoggedInUserInfo(){
@@ -29,7 +29,7 @@ export class UserService {
         'Content-Type':  'application/json',
         'Authorization': 'Basic ' + sessionStorage.getItem("token")
       })}
-    return this.http.post(`http://23.97.53.91:8080/eatngreet/userms/user/get-user-info`, {}, httpOptions);
+    return this.http.post(`userms/user/get-user-info`, {}, httpOptions);
   }
 
   handleError(error) {
