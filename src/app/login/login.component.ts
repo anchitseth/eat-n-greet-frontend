@@ -44,13 +44,18 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.userLoginObj.setPassword(this.loginForm.get('password').value);
-    this.userLoginObj.setUsername(this.loginForm.get('email').value);
-    this.userService.login(this.userLoginObj).subscribe((response) => {
-      // this.myToastr.showSuccessToast("Logged in successfully.");
-      sessionStorage.setItem('token', btoa(this.userLoginObj.username + ':' + this.userLoginObj.password));
-      this.router.navigate(['home']);
+    this.userService.tempCall().subscribe((response) => {
+      console.log("received response from entire url is: ", response);
     });
+    this.userService.tempCall2().subscribe((response) => {
+      console.log("received response from proxy url is: ", response);
+    });
+    // this.userLoginObj.setPassword(this.loginForm.get('password').value);
+    // this.userLoginObj.setUsername(this.loginForm.get('email').value);
+    // this.userService.login(this.userLoginObj).subscribe((response) => {
+    //   sessionStorage.setItem('token', btoa(this.userLoginObj.username + ':' + this.userLoginObj.password));
+    //   this.router.navigate(['home']);
+    // });
   }
 
   redirectToSignup(){

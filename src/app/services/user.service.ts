@@ -16,6 +16,14 @@ export class UserService {
     ) {
   }
 
+  tempCall(){
+    return this.http.get("http://13.76.131.119:8080/eatngreet/userms/user/health-check");
+  }
+
+  tempCall2(){
+    return this.http.get("userms/user/health-check");
+  }
+
   login(loginObj: UserLogin) {
     const body = new FormData();
     body.set('username', loginObj.username);
