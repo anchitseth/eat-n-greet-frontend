@@ -1,0 +1,64 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+form {
+    text-align: center;
+    /*background-image: url("src/assets/thai-food.jpg");*/
+}
+
+mat-form-field {
+    margin-top: -10px;
+}
+
+mat-expansion-panel {
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+mat-expansion-panel {
+    width: 98%;
+    margin: 10px;
+}
+
+mat-tab-group {
+    width: 60%;
+    margin-left: 20%;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+table {
+    border-collapse: collapse;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+td {
+    padding: 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+td,
+th {
+    border: 0pxsolid#dddddd;
+    text-align: left;
+    padding: 2px;
+}
+
+tr:nth-child {
+    background-color: #dddddd;
+}

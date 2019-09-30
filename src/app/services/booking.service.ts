@@ -17,7 +17,7 @@ export class BookingService {
   }
 
   getSingleProducerItem(orderId) {
-    return this.http.post<DataResponseDto>('bookingms/booking/single-producer-item', {"producerOrderId": orderId});
+    return this.http.post<DataResponseDto>('bookingms/booking/single-producer-item', { "producerOrderId": orderId });
   }
 
   getAllItemNames() {
@@ -27,9 +27,40 @@ export class BookingService {
   createNewOrder(reqObj) {
     const httpOptions = {
       headers: new HttpHeaders({
-        'Content-Type':  'application/json',
+        'Content-Type': 'application/json',
         'Authorization': 'Basic ' + sessionStorage.getItem("token")
-      })}
+      })
+    }
     return this.http.post<CommonResponseDto>(`bookingms/booking/producer-order`, reqObj, httpOptions);
+  }
+
+  bookMeal(producerOrderId) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Basic ' + sessionStorage.getItem("token")
+      })
+    }
+    return this.http.post<CommonResponseDto>(`bookingms/booking/consumer-order`, { "producerOrderId": producerOrderId }, httpOptions);
+  }
+
+  getAllConsumerOrdersOfAUser() {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Basic ' + sessionStorage.getItem("token")
+      })
+    }
+    return this.http.post<DataResponseDto>(`bookingms/booking/user-consumer-item`, {  }, httpOptions);
+  }
+
+  getAllProducerOrdersOfAUser() {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Basic ' + sessionStorage.getItem("token")
+      })
+    }
+    return this.http.post<DataResponseDto>(`bookingms/booking/user-producer-item`, {  }, httpOptions);
   }
 }

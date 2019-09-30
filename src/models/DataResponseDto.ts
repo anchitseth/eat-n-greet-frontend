@@ -1,8 +1,8 @@
 export class DataResponseDto {
 
-    public message: String;
-    public status: String;
-    public info: String;
+    public message: string;
+    public status: string;
+    public info: string;
     public success: boolean;
     public data: Object;
 

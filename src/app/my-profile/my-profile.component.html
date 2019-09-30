@@ -1,0 +1,118 @@
+<div>
+    <mat-toolbar class="fixed-header" color="primary" style="min-height: 45px !important; height: 45px !important;">
+        <mat-toolbar-row>
+            <!--<a href="/" > Eat & Greeth </a>-->
+            <span style="cursor:pointer" routerLink="/home" (click)="goToHome()">Eat-N-Greet</span>
+
+            <span class="example-spacer"></span>
+
+            <button mat-button [matMenuTriggerFor]="dropdownoptions">{{firstName}} {{lastName}}<mat-icon>
+                    keyboard_arrow_down</mat-icon></button>
+        </mat-toolbar-row>
+    </mat-toolbar>
+    <mat-menu #dropdownoptions="matMenu">
+        <a mat-menu-item (click)="goToMyOrders()">My Orders</a>
+        <a mat-menu-item (click)="goToPostAMeal()">Post a Meal</a>
+        <a mat-menu-item (click)="goToProfile()">Profile</a>
+        <a mat-menu-item (click)="logout()" *ngIf="isLoggedIn">Logout</a>
+        <a mat-menu-item (click)="login()" *ngIf="!isLoggedIn">Login</a>
+    </mat-menu>
+</div>
+<mat-tab-group mat-align-tabs="center">
+    <mat-tab label="Personal Information">
+        <table>
+            <tr>
+                <td>First Name </td>
+                <td>{{userInfo.firstName}}</td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td>{{userInfo.lastName}}</td>
+            </tr>
+            <tr>
+                <td>Phone Number</td>
+                <td>{{userInfo.phoneNo}}</td>
+            </tr>
+            <tr>
+                <td>Email ID </td>
+                <td>{{userInfo.emailId}}</td>
+            </tr>
+            <tr>
+                <td>Date Of Birth</td>
+                <td>{{userInfo.dob}}</td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td>{{userInfo.gender}}</td>
+            </tr>
+
+        </table>
+    </mat-tab>
+    <mat-tab label="Address">
+        <table>
+            <tr>
+                <td>Level </td>
+                <td>{{userInfo.addresses[0].floorNo}}</td>
+            </tr>
+            <tr>
+                <td>Unit # </td>
+                <td>{{userInfo.addresses[0].unitNo}}</td>
+            </tr>
+            <tr>
+                <td>Block # </td>
+                <td>{{userInfo.addresses[0].blockNo}}</td>
+            </tr>
+
+            <tr>
+                <td>Building Name</td>
+                <td>{{userInfo.addresses[0].buildingName}}</td>
+            </tr>
+            <tr>
+                <td>Street Name</td>
+                <td>{{userInfo.addresses[0].streetName}}</td>
+            </tr>
+            <tr>
+                <td>Pincode</td>
+                <td>{{userInfo.addresses[0].pincode}}</td>
+            </tr>
+
+        </table>
+    </mat-tab>
+    <mat-tab label="Wallet">
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <div>Your balance</div>
+                </mat-panel-title>
+                <mat-panel-description>
+                    <div>{{balance}} SGD</div>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+        </mat-expansion-panel>
+    </mat-tab>
+</mat-tab-group>
+
+
+
+<div>
+    <footer class="page-footer font-small blue" style="min-height: 45px !important; height: 45px !important;">
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3" style="color: white">© 2018 Copyright:
+            <a style="color: white"> Eat-N-Greet.com </a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+</div>
+<div>
+    <footer class="page-footer font-small blue">
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3" style="color: white">© 2018 Copyright:
+            <a style="color: white"> Eat-N-Greet.com </a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+</div>

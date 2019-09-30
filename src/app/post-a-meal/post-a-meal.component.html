@@ -1,0 +1,119 @@
+<div>
+    <mat-toolbar class="fixed-header" color="primary" style="min-height: 45px !important; height: 45px !important;">
+        <mat-toolbar-row>
+            <!--<a href="/" > Eat & Greeth </a>-->
+            <span style="cursor:pointer" routerLink="/home" (click)="goToHome()">Eat-N-Greet</span>
+
+            <span class="example-spacer"></span>
+
+            <button mat-button [matMenuTriggerFor]="dropdownoptions">{{firstName}} {{lastName}}<mat-icon>
+                    keyboard_arrow_down</mat-icon></button>
+        </mat-toolbar-row>
+    </mat-toolbar>
+    <mat-menu #dropdownoptions="matMenu">
+        <a mat-menu-item (click)="goToMyOrders()">My Orders</a>
+        <a mat-menu-item (click)="goToPostAMeal()">Post a Meal</a>
+        <a mat-menu-item (click)="goToProfile()">Profile</a>
+        <a mat-menu-item (click)="logout()" *ngIf="isLoggedIn">Logout</a>
+        <a mat-menu-item (click)="login()" *ngIf="!isLoggedIn">Login</a>
+    </mat-menu>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col m-6">
+            <figure>
+                <img src="../../assets/thai-food.jpg">
+            </figure>
+        </div>
+        <div class="col m-6">
+            <div style="overflow:auto">
+                <form [formGroup]="mealForm" (ngSubmit)="submit()">
+                    <!--<div class="mat-card-cvr">-->
+
+                    <!-- Number of consumers to be served -->
+                    <mat-form-field floatLabel="auto" appearance="standard">
+                        <mat-label>Number of pax</mat-label>
+                        <input type="number" formControlName="noOfPax" matInput required min="1">
+                    </mat-form-field> <br>
+
+                    <!-- Price per person -->
+                    <mat-form-field floatLabel="auto" appearance="standard">
+                        <mat-label>Price (SGD)</mat-label>
+                        <input type="number" formControlName="price" matInput required min="1">
+                    </mat-form-field><br>
+
+                    <!-- Serving Date -->
+                    <!-- <mat-form-field>
+        <input type="date-local" formControlName="servingDate" matInput required placeholder="Serving date" 
+          useValueAsDate>
+      </mat-form-field> -->
+                    <mat-form-field>
+                        <input matInput required [min]="today" [matDatepicker]="servingDatePicker" placeholder="Serving Date" formControlName="servingDate">
+                        <mat-datepicker-toggle matSuffix [for]="servingDatePicker"></mat-datepicker-toggle>
+                        <mat-datepicker #servingDatePicker></mat-datepicker>
+                    </mat-form-field><br />
+
+                    <!-- Serving Time -->
+                    <!-- <input class="col-md-5 end" matInput name="end" formControlName="start" type="time"> -->
+                    <mat-form-field>
+                        <input type="time" formControlName="servingTime" matInput required placeholder="Serving time">
+                    </mat-form-field><br />
+
+                    <!-- Reservation Deadline Date -->
+                    <!-- <mat-form-field>
+        <input type="date-local" formControlName="reservationDate" matInput required
+          placeholder="Reservation Deadline Date" useValueAsDate>
+      </mat-form-field> -->
+                    <mat-form-field>
+                        <input matInput required [min]="today" [matDatepicker]="reservationDatePicker" placeholder="Reservation Deadline Date" formControlName="reservationDate">
+                        <mat-datepicker-toggle matSuffix [for]="reservationDatePicker"></mat-datepicker-toggle>
+                        <mat-datepicker #reservationDatePicker></mat-datepicker>
+                    </mat-form-field><br />
+
+                    <!-- Reservation Deadline Time -->
+                    <!-- <input class="col-md-5 end" matInput name="end" formControlName="start" type="time"> -->
+                    <mat-form-field>
+                        <input type="time" formControlName="reservationTime" matInput required placeholder="Reservation Deadline Time">
+                    </mat-form-field><br />
+
+                    <!-- Preference Type -->
+                    <mat-label>Preference *</mat-label><br /><br>
+                    <mat-radio-group color="primary" formControlName="preference">
+                        <mat-radio-button value="1">Dine-In</mat-radio-button> &nbsp;
+                        <mat-radio-button value="2">Take-Away</mat-radio-button>
+                    </mat-radio-group><br>
+
+                    <!-- Items-->
+                    <mat-form-field class="example-chip-list">
+                        <mat-chip-list #itemList aria-label="Item selection">
+                            <mat-chip *ngFor="let selectedItem of selectedItems" [selectable]="selectable" [removable]="removable" (removed)="remove(selectedItem)">
+                                {{selectedItem}}
+                                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                            </mat-chip>
+                            <input placeholder="New item..." #itemInput [formControl]="itemCtrl" [matAutocomplete]="auto" [matChipInputFor]="itemList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)">
+                        </mat-chip-list>
+                        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                            <mat-option *ngFor="let filteredItem of filteredItems | async" [value]="filteredItem">
+                                {{filteredItem}}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field><br>
+
+                    <button mat-raised-button color="primary"> POST MEAL </button>
+                    <!--</div>-->
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <footer class="page-footer font-small blue">
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3" style="color: white">© 2018 Copyright:
+            <a style="color: white"> Eat-N-Greet.com </a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+</div>

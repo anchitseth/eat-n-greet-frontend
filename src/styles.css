@@ -1,20 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+    height: 100%;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
+html,
+body {
+    height: 100%;
+}
 
-.dates{
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.dates {
     width: 90%;
     margin-left: 5%;
     padding: 10px;
-} 
+}
 
 .mat-chip-list-wrapper {
-    height:60px !important;
+    height: 60px !important;
     overflow-y: scroll !important;
 }
 
@@ -28,4 +41,67 @@ mat-form-field {
 
 .mat-form-field-appearance-standard .mat-form-field-flex {
     padding-top: 0;
+}
+
+
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.dates {
+    width: 90%;
+    margin-left: 5%;
+    padding: 10px;
+}
+
+.mat-chip-list-wrapper {
+    height: 60px !important;
+    overflow-y: scroll !important;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+.mat-form-field-wrapper {
+    padding-bottom: 24px;
+}
+
+.mat-form-field-appearance-standard .mat-form-field-flex {
+    padding-top: 0;
+}
+
+.bg .mat-radio-label {
+    margin-right: 15px !important;
+    margin-top: 4px !important;
+}
+
+button.mat-raised-button.mat-button-base.mat-primary {
+    margin-right: 15px;
+}
+
+.mt-40 {
+    margin-top: 40px;
+}
+
+a {
+    cursor: pointer;
 }

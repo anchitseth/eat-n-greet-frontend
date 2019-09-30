@@ -1,0 +1,85 @@
+<div *ngIf="isLoading" class="loader">
+</div>
+
+
+<div *ngIf="!isLoading">
+    <mat-toolbar class="fixed-header" color="primary" style="min-height: 45px !important; height: 45px !important;">
+        <mat-toolbar-row>
+            <!--<a href="/" > Eat & Greeth </a>-->
+            <span style="cursor:pointer" routerLink="/home" (click)="goToHome()">Eat-N-Greet</span>
+
+            <span class="example-spacer"></span>
+
+            <button mat-button [matMenuTriggerFor]="dropdownoptions">{{firstName}} {{lastName}}<mat-icon>
+                    keyboard_arrow_down</mat-icon></button>
+        </mat-toolbar-row>
+    </mat-toolbar>
+    <mat-menu #dropdownoptions="matMenu">
+        <a mat-menu-item (click)="goToMyOrders()">My Orders</a>
+        <a mat-menu-item (click)="goToPostAMeal()">Post a Meal</a>
+        <a mat-menu-item (click)="goToProfile()">Profile</a>
+        <a mat-menu-item (click)="logout()" *ngIf="isLoggedIn">Logout</a>
+        <a mat-menu-item (click)="login()" *ngIf="!isLoggedIn">Login</a>
+    </mat-menu>
+</div>
+
+
+<!-- card design here -->
+<div class="container">
+    <div class="row" *ngIf="!isLoading">
+        <div class="col col-4 mt-40" *ngFor="let order of orderList">
+            <div class="products-grid">
+                <h2>{{order.cuisine}}</h2>
+                <figure>
+                    <img class="image" src="{{order.imageUrl}}" class="img-full">
+                </figure>
+                <div class="product-details">
+                    <p><span class="font-500">Address:</span> {{order.streetName}} </p>
+                    <p><span class="font-500">Items:</span> {{order.itemNames}} </p>
+                    <p><span class="font-500">Attendee Count:</span> {{order.currentAttendeeCount}} / {{order.totalAttendees}} </p>
+                    <p><span class="font-500">Address:</span> {{order.streetName}} </p>
+                    <p><span class="font-500"> Items:</span> {{order.itemNames}} </p>
+                    <p><span class="font-500"> Attendee Count:</span> {{order.currentAttendeeCount}} / {{order.totalAttendees}}
+                    </p>
+                    <button mat-raised-button color="primary" routerlink="/bookameal" routerLinkActive="active" (click)="viewOrderDetails(order.orderId)">View Details</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div class="carddiv" *ngIf="!isLoading">
+
+    <mat-grid-list cols="3">
+        <mat-grid-tile class="divcls" *ngFor="let order of orderList">
+            <mat-card class="example-card" fxLayoutWrap="wrap" fxLayout="column" fxFlex="150%" fxLayoutGap="0.1px">
+                <mat-card-header>
+                    <mat-card-title style="font-size: 14px">
+                        {{order.cuisine}}
+                    </mat-card-title>
+                </mat-card-header>
+                <img class="image" fxFlex="1%" mat-card-image src="{{order.imageUrl}}">
+                <mat-card-content>
+                    Address: {{order.streetName}} <br /> Items: {{order.itemNames}} <br /> Attendee Count: {{order.currentAttendeeCount}} / {{order.totalAttendees}} <br /> Address: {{order.streetName}}
+                    <br /> Items: {{order.itemNames}} <br /> Attendee Count: {{order.currentAttendeeCount}} / {{order.totalAttendees}}
+                </mat-card-content>
+
+                <mat-card-actions>
+                    <button mat-raised-button color="primary" routerlink="/bookameal" routerLinkActive="active" (click)="viewOrderDetails(order.orderId)">View Details</button>
+                </mat-card-actions>
+            </mat-card>
+
+        </mat-grid-tile>
+    </mat-grid-list>
+</div> -->
+
+<div *ngIf="!isLoading">
+    <footer class="page-footer font-small blue">
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3" style="color: white">© 2018 Copyright:
+            <a style="color: white"> Eat-N-Greet.com </a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+</div>

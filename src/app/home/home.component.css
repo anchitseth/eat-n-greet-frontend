@@ -1,0 +1,58 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+
+/*.example-card{
+  
+    max-block-size: 700px;
+   
+  }*/
+
+.carddiv {
+    margin-left: 150px;
+    margin-right: 100px;
+    margin-top: 30px;
+}
+
+footer {
+    width: 100%;
+    background: rgb(65, 79, 185);
+    display: block;
+}
+
+.loader {
+    position: fixed;
+    z-index: 99999;
+    top: 0%;
+    right: 0%;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    opacity: 0.6;
+    background: url('../../assets/loader.gif') 50% 50% no-repeat rgb(249, 249, 249);
+}
+
+.img-full {
+    width: 100%;
+    object-fit: cover;
+    height: 200px;
+    overflow: hidden;
+}
+
+.product-details p {
+    margin: 0;
+}
+
+.product-details button {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.font-500 {
+    font-weight: 500
+}
+
+.mt-40 {
+    margin-top: 40px;
+}

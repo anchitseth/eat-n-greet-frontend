@@ -1,0 +1,110 @@
+<div>
+    <mat-toolbar class="fixed-header" color="primary" style="min-height: 45px !important; height: 45px !important;">
+        <mat-toolbar-row>
+            <!--<a href="/" > Eat & Greeth </a>-->
+            <span style="cursor:pointer" routerLink="/home" (click)="goToHome()">Eat-N-Greet</span>
+
+            <span class="example-spacer"></span>
+
+            <button mat-button [matMenuTriggerFor]="dropdownoptions">{{firstName}} {{lastName}}<mat-icon>
+                    keyboard_arrow_down</mat-icon></button>
+        </mat-toolbar-row>
+    </mat-toolbar>
+    <mat-menu #dropdownoptions="matMenu">
+        <a mat-menu-item (click)="goToMyOrders()">My Orders</a>
+        <a mat-menu-item (click)="goToPostAMeal()">Post a Meal</a>
+        <a mat-menu-item (click)="goToProfile()">Profile</a>
+        <a mat-menu-item (click)="logout()" *ngIf="isLoggedIn">Logout</a>
+        <a mat-menu-item (click)="login()" *ngIf="!isLoggedIn">Login</a>
+    </mat-menu>
+</div>
+<div>
+    <div class="container">
+        <div class="row mt-40">
+            <div class="col col-6">
+                <div class="centered">
+                    <mat-card>
+                        <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+                    </mat-card><br>
+
+
+                </div>
+            </div>
+
+            <div class="col col-6">
+                <div class="centered">
+                    <mat-card class="example-card">
+                        <table>
+                            <tr>
+                                <td> Name </td>
+                                <td> {{mealDetails.firstName}} {{mealDetails.lastName}}</td>
+                            </tr>
+                            <tr>
+                                <td> Address </td>
+                                <td> {{mealDetails.address.buildingName}} {{mealDetails.address.pincode}}</td>
+                            </tr>
+                            <tr>
+                                <td>Serving Date</td>
+                                <td>{{mealDetails.servingDate}}</td>
+                            </tr>
+                            <tr>
+                                <td>paymentDeadline</td>
+                                <td>{{mealDetails.paymentDeadline}}</td>
+                            </tr>
+                            <tr>
+                                <td>Reservation Date</td>
+                                <td> {{mealDetails.reservationDeadline}}</td>
+                            </tr>
+                            <tr>
+                                <td>Preference Type</td>
+                                <td>{{preferenceType}}</td>
+                            </tr>
+                            <tr>
+                                <td>Price</td>
+                                <td>{{mealDetails.firstName}}</td>
+                            </tr>
+                            <tr>
+                                <td>Number of Persons to be served</td>
+                                <td>{{mealDetails.firstName}}</td>
+                            </tr>
+                            <tr>
+                                <td>Actual people count</td>
+                                <td>{{mealDetails.maxPeopleCount}}</td>
+                            </tr>
+                            <tr>
+                                <td>Items List</td>
+                                <td>
+
+                                    <div *ngFor="let item of mealDetails.itemList">{{item.name}}
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Note</td>
+                                <td>{{mealDetails.note}}</td>
+                            </tr>
+
+                        </table>
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-12 center-align">
+                <button mat-raised-button color="primary" style="margin-right:5px;" (click)="bookMeal()" [disabled]="disableBookOrderButton">Book Now</button>
+                <button mat-raised-button color="primary" style="margin-right:5px;" (click)="goToHomePage()">Back</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <footer class="page-footer font-small blue">
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3" style="color: white">© 2018 Copyright:
+            <a style="color: white"> Eat-N-Greet.com </a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+</div>

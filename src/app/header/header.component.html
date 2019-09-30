@@ -1,8 +1,19 @@
-<mat-toolbar class="fixed-header" color="primary">
+<div *ngIf="!isLoading">
+    <mat-toolbar class="fixed-header" color="primary" style="min-height: 45px !important; height: 45px !important;">
         <mat-toolbar-row>
+            <!--<a href="/" > Eat & Greeth </a>-->
+            <span style="cursor:pointer" routerLink="/home" (click)="goToHome()">Eat-N-Greet</span>
+
             <span class="example-spacer"></span>
-            <button mat-button routerlink="/signup" routerlinkActive="active" (click)="test()">Signup</button>   
-            <!--<button mat-button routerlink="/login" routerlinkActive="active" (click)="testlogin()">LogIn</button> -->  
+
+            <button mat-button [matMenuTriggerFor]="dropdownoptions">{{firstName}} {{lastName}}<mat-icon>
+                        keyboard_arrow_down</mat-icon></button>
         </mat-toolbar-row>
     </mat-toolbar>
-    
+    <mat-menu #dropdownoptions="matMenu">
+        <a mat-menu-item (click)="goToMyOrders()">My Orders</a>
+        <a mat-menu-item (click)="goToPostAMeal()">Post a Meal</a>
+        <a mat-menu-item (click)="goToProfile()">Profile</a>
+        <a mat-menu-item (click)="logout()">Logout</a>
+    </mat-menu>
+</div>

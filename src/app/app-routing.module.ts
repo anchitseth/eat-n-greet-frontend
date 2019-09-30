@@ -1,37 +1,45 @@
 import { MyOrdersComponent } from './my-orders/my-orders.component';
-import { NewpostmealComponent } from './newpostmeal/newpostmeal.component';
+import { PostAMealComponent } from './post-a-meal/post-a-meal.component';
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { StepperSignupComponent } from './stepper-signup/stepper-signup.component';
+import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
-import { NewhomeComponent } from './newhome/newhome.component';
-import { BookamealComponent } from './bookameal/bookameal.component';
-import { ProfileComponent } from './profile/profile.component';
+import { HomeComponent } from './home/home.component';
+import { MealDetailsComponent } from './meal-details/meal-details.component';
+import { MyProfileComponent } from './my-profile/my-profile.component';
 
 const routes: Routes = [
   {
-    path: 'signup', component: StepperSignupComponent
+    path: 'signup',
+    component: SignupComponent
   },
   {
-    path: '', component: LoginComponent
+    path: '',
+    component: HomeComponent
   },
   {
-    path: 'home', component: NewhomeComponent
+    path: 'home',
+    component: HomeComponent
   },
   {
-    path: 'login', component: LoginComponent
+    path: 'login',
+    component: LoginComponent
   },
   {
-    path: 'postmeal', component: NewpostmealComponent
+    path: 'post-meal',
+    component: PostAMealComponent
   },
   {
-    path: 'myorders', component: MyOrdersComponent
+    path: 'orders',
+    component: MyOrdersComponent
   },
   {
-    path: 'meal-details/:orderId', component: BookamealComponent
+    path: 'meal-details/:orderId',
+    component: MealDetailsComponent
   },
   {
-    path: 'profile', component: ProfileComponent
+    path: 'profile',
+    component: MyProfileComponent
   }
 ];
 
@@ -40,5 +48,10 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingcomponents = [StepperSignupComponent, NewhomeComponent, NewpostmealComponent, MyOrdersComponent,
-  BookamealComponent,ProfileComponent];
+export const routingcomponents = [
+  SignupComponent,
+  HomeComponent,
+  PostAMealComponent,
+  MyOrdersComponent,
+  MealDetailsComponent,
+  MyProfileComponent];

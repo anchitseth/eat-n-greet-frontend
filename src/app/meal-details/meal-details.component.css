@@ -1,0 +1,36 @@
+ table {
+     font-family: arial, sans-serif;
+     border-collapse: collapse;
+     width: 100%;
+ }
+ 
+ td,
+ th {
+     border: 0px solid #dddddd;
+     text-align: left;
+     padding: 3px;
+ }
+ 
+ tr:nth-child {
+     background-color: #dddddd;
+ }
+ 
+ .center-align {
+     text-align: center;
+ }
+ 
+ @media (min-width: 1200px) {
+     .container {
+         max-width: 1294px !important;
+     }
+ }
+ 
+ .example-spacer {
+     flex: 1 1 auto;
+ }
+ 
+ mat-card.example-card.mat-card {
+     max-height: 438px;
+     height: 438px;
+     overflow-y: scroll;
+ }
