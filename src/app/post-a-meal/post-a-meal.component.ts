@@ -201,7 +201,13 @@ export class PostAMealComponent implements OnInit {
             createOrderObj['itemList'] = finalSuggestedItems;
             createOrderObj['otherItems'] = otherItemsStr.substring(2, otherItemsStr.length);
             this.bookingService.createNewOrder(createOrderObj).subscribe((response) => {
-              console.log("Received response: ", response);
+              if(response.success) {
+                this.toastr.showSuccessToast("Successfully posted meal.");
+                this.router.navigate(['home']);
+              } else {
+                this.toastr.showErrorToast("Some problem occurred, please try again later.");
+                this.router.navigate(['home']);
+              }
               
             });
           }

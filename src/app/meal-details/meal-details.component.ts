@@ -24,7 +24,6 @@ export class MealDetailsComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute,
     private bookingService: BookingService,
-    // private data: DataService,
     private router: Router,
     private fb: FormBuilder,
     private toastr: MyToastrService) { }
