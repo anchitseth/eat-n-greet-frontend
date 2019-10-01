@@ -12,7 +12,7 @@
         "changeOrigin": true
     },
     "/paymentms/*": {
-        "target": "http://13.67.54.211:8082/:8082/eatngreet/",
+        "target": "http://13.67.54.211:8082/eatngreet/",
         "secure": false,
         "logLevel": "debug",
         "changeOrigin": true

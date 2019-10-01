@@ -39,16 +39,10 @@ export class HomeComponent implements OnInit {
     });
 
     this.bookingService.getAllOrdersForListing().subscribe((response) => {
-      let data = [];
       if (response.success) {
         this.orderList = response.data['producerOrders'];
-        data = response.data['producerOrders'];
       }
-      data.forEach((element) => {
-        this.orderList.push(element);
-      })
 
-      // console.log(this.orderList);
       this.isLoading = false;
     });
 
