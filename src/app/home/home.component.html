@@ -37,10 +37,7 @@
                     <p><span class="font-500">Address:</span> {{order.streetName}} </p>
                     <p><span class="font-500">Items:</span> {{order.itemNames}} </p>
                     <p><span class="font-500">Attendee Count:</span> {{order.currentAttendeeCount}} / {{order.totalAttendees}} </p>
-                    <p><span class="font-500">Address:</span> {{order.streetName}} </p>
-                    <p><span class="font-500"> Items:</span> {{order.itemNames}} </p>
-                    <p><span class="font-500"> Attendee Count:</span> {{order.currentAttendeeCount}} / {{order.totalAttendees}}
-                    </p>
+                    <!-- <p><span class="font-500">Attendee Count:</span> {{order.currentAttendeeCount}} / {{order.totalAttendees}} </p> -->
                     <button mat-raised-button color="primary" routerlink="/bookameal" routerLinkActive="active" (click)="viewOrderDetails(order.orderId)">View Details</button>
                 </div>
             </div>

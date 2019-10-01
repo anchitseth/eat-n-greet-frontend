@@ -41,14 +41,14 @@
                             </tr>
                             <tr>
                                 <td> Address </td>
-                                <td> {{mealDetails.address.buildingName}} {{mealDetails.address.pincode}}</td>
+                                <td> {{mealDetails.address.floorNo}}-{{mealDetails.address.unitNo}}, {{mealDetails.address.blockNo}} - {{mealDetails.address.buildingName}}, {{mealDetails.address.streetName}} {{mealDetails.address.pincode}}</td>
                             </tr>
                             <tr>
                                 <td>Serving Date</td>
                                 <td>{{mealDetails.servingDate}}</td>
                             </tr>
                             <tr>
-                                <td>paymentDeadline</td>
+                                <td>Payment Deadline</td>
                                 <td>{{mealDetails.paymentDeadline}}</td>
                             </tr>
                             <tr>
@@ -61,15 +61,15 @@
                             </tr>
                             <tr>
                                 <td>Price</td>
-                                <td>{{mealDetails.firstName}}</td>
+                                <td>{{mealDetails.price}} SGD</td>
                             </tr>
                             <tr>
-                                <td>Number of Persons to be served</td>
-                                <td>{{mealDetails.firstName}}</td>
+                                <td>Max number of Persons to be served</td>
+                                <td>{{mealDetails.maxPeopleCount}}</td>
                             </tr>
                             <tr>
                                 <td>Actual people count</td>
-                                <td>{{mealDetails.maxPeopleCount}}</td>
+                                <td>{{mealDetails.actualPeopleCount}}</td>
                             </tr>
                             <tr>
                                 <td>Items List</td>
