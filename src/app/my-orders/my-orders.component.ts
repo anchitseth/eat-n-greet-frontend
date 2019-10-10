@@ -56,7 +56,7 @@ export class MyOrdersComponent implements OnInit {
     this.bookingService.getAllProducerOrdersOfAUser().subscribe((response) => {
       if (response.success) {
         if (response.data != undefined) {
-          this.postedOrders = response.data['producerOrders'];
+          this.postedOrders = response.data['producersOrder'];
           console.log("posted orders: ", this.postedOrders);
           this.postedOrdersPresent = true;
         } else { 

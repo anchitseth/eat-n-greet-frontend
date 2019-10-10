@@ -40,9 +40,8 @@ export class HomeComponent implements OnInit {
 
     this.bookingService.getAllOrdersForListing().subscribe((response) => {
       if (response.success) {
-        this.orderList = response.data['producerOrders'];
+        this.orderList = response.data['producersOrder'];
       }
-
       this.isLoading = false;
     });
 
