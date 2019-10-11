@@ -37,6 +37,7 @@ export class MealDetailsComponent implements OnInit {
   lastName: string;
 
   ngOnInit() {
+    this.isLoading = true;
     let loggedInStatus = sessionStorage.getItem("isLoggedIn");
     if (loggedInStatus == "true") {
       this.isLoggedIn = true;
@@ -75,8 +76,8 @@ export class MealDetailsComponent implements OnInit {
     });
     this.bookingService.getSingleProducerItem(this.orderId).subscribe((response) => {
       if (response.success) {
-        if (response.data['producerOrders'].length > 0) {
-          this.mealDetails = response.data['producerOrders'][0];
+        if (response.data['producersOrder'].length > 0) {
+          this.mealDetails = response.data['producersOrder'][0];
           if (this.mealDetails.preferencyType == 1) {
             this.preferenceType = "DINE IN";
           } else {
@@ -110,6 +111,7 @@ export class MealDetailsComponent implements OnInit {
         this.toastr.showErrorToast("Can't find the meal you are looking for.")
         this.router.navigate(['home']);
       }
+      this.isLoading = false;
     });
   }
 
@@ -117,6 +119,7 @@ export class MealDetailsComponent implements OnInit {
     if (sessionStorage.getItem("isLoggedIn") == "false" || sessionStorage.getItem("isLoggedIn") === undefined || sessionStorage.getItem("isLoggedIn") == null) {
       this.toastr.showErrorToast("Please login to continue with the reservation.");
     } else {
+      this.isLoading = true;
       this.bookingService.bookMeal(this.orderId).subscribe((response) => {
         this.isLoading = true;
         this.disableBookOrderButton = true;
@@ -126,10 +129,12 @@ export class MealDetailsComponent implements OnInit {
           this.disableBookOrderButton = false;
           this.toastr.showErrorToast(response.message);
         }
+        this.isLoading = false;
+
       });
     }
   }
-  goToHome() {
+  goToHomePage() {
     this.router.navigateByUrl('/home');
   }
 

@@ -1,4 +1,8 @@
-<div>
+<div *ngIf="isLoading" class="loader">
+</div>
+
+
+<div *ngIf="!isLoading">
     <mat-toolbar class="fixed-header" color="primary" style="min-height: 45px !important; height: 45px !important;">
         <mat-toolbar-row>
             <!--<a href="/" > Eat & Greeth </a>-->
@@ -18,7 +22,7 @@
         <a mat-menu-item (click)="login()" *ngIf="!isLoggedIn">Login</a>
     </mat-menu>
 </div>
-<div>
+<div *ngIf="!isLoading">
     <div class="container">
         <div class="row mt-40">
             <div class="col col-6">
@@ -97,7 +101,7 @@
         </div>
     </div>
 </div>
-<div>
+<div *ngIf="!isLoading">
     <footer class="page-footer font-small blue">
 
         <!-- Copyright -->
