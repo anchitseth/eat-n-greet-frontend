@@ -49,6 +49,7 @@ export class PostAMealComponent implements OnInit {
   isLoggedIn: boolean = false;
 
   ngOnInit() {
+    this.isLoading = true;
     let loggedInStatus = sessionStorage.getItem("isLoggedIn");
     if (loggedInStatus == "true") {
       this.isLoggedIn = true;
@@ -58,10 +59,10 @@ export class PostAMealComponent implements OnInit {
     }
     this.firstName = sessionStorage.getItem("firstName");
     this.lastName = sessionStorage.getItem("lastName");
-    this.isLoading = true;
     this.bookingService.getAllItemNames().subscribe(response => {
       if (response.success) {
         this.allItems = response.data['items'];
+        this.isLoading = false;
       }
     });
   }
@@ -200,7 +201,9 @@ export class PostAMealComponent implements OnInit {
             // this.getSuggestedItems();
             createOrderObj['itemList'] = finalSuggestedItems;
             createOrderObj['otherItems'] = otherItemsStr.substring(2, otherItemsStr.length);
+            this.isLoading = true;
             this.bookingService.createNewOrder(createOrderObj).subscribe((response) => {
+              this.isLoading = false;
               if(response.success) {
                 this.toastr.showSuccessToast("Successfully posted meal.");
                 this.router.navigate(['home']);
