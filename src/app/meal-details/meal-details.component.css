@@ -27,6 +27,13 @@
      background: url('../../assets/loader.gif') 50% 50% no-repeat rgb(249, 249, 249);
  }
  
+ footer {
+     width: 100%;
+     background: rgb(65, 79, 185);
+     display: block;
+     margin-top: 78px;
+ }
+ 
  .center-align {
      text-align: center;
  }
