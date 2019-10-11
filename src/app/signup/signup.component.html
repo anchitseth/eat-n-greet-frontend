@@ -1,4 +1,7 @@
-<div class="bg">
+<div *ngIf="isLoading" class="loader">
+</div>
+
+<div class="bg" *ngIf="!isLoading">
     <form [formGroup]="registrationform">
 
         <div *ngIf="formCount == 1" class="container">
